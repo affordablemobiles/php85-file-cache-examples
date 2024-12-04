@@ -1,0 +1,19 @@
+runtime: php85
+
+instance_class: F1
+
+automatic_scaling:
+  max_concurrent_requests: 2
+
+entrypoint: serve --workers=4 public/index.php
+
+inbound_services:
+- warmup
+
+handlers:
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+- url: .*
+  secure: always
+  script: auto

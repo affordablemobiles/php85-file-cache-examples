@@ -1,0 +1,15 @@
+{
+    "name": "affordablemobiles/php85-file-cache-examples",
+    "type": "project",
+    "description" : "opcache pre-warm demo",
+    "license": "MIT",
+    "require": {
+        "php": "^8.5",
+        "symfony/finder": "^7.1"
+    },
+    "require-dev": {},
+    "scripts": {
+        "gcp-build": "@php -dopcache.enable=1 -dopcache.enable_cli=1 -dopcache.jit=disable -dopcache.file_cache=$(pwd)/opcache -dopcache.file_cache_only=1 -dopcache.file_cache_read_only=0 prewarm.php"
+    },
+    "minimum-stability": "stable"
+}
